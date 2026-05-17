@@ -22,7 +22,7 @@ app.use(
   cors({
     origin:  [
   "http://localhost:5173",
-  "https://online-reporting.onrender.com"
+  "https://online-reporting-1.onrender.com"
 ],
     credentials: true,
   })
