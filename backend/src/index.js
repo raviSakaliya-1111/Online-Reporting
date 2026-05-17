@@ -56,3 +56,16 @@ app.listen(PORT, () => {
   console.log("server is running on PORT : ", PORT);
   connectDB();
 });
+import path from "path";
+import express from "express";
+
+const app = express();
+
+const __dirname = path.resolve();
+
+// Serve frontend
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});
