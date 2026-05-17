@@ -20,10 +20,7 @@ app.use(express.json({ limit: "100mb" }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin:  [
-  "http://localhost:5173",
-  "https://online-reporting-1.onrender.com"
-],
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
@@ -50,8 +47,8 @@ if(process.env.NODE_ENV === "production"){
 
   // Fallback only for non-API routes
   app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-});
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
 }
 
 
@@ -59,5 +56,3 @@ app.listen(PORT, () => {
   console.log("server is running on PORT : ", PORT);
   connectDB();
 });
-
-
