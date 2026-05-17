@@ -56,8 +56,8 @@ app.listen(PORT, () => {
   console.log("server is running on PORT : ", PORT);
   connectDB();
 });
-import path from "path";
-import express from "express";
+
+
 
 const app = express();
 
