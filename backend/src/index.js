@@ -20,7 +20,10 @@ app.use(express.json({ limit: "100mb" }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin:  [
+  "http://localhost:5173",
+  "https://online-reporting.onrender.com"
+],
     credentials: true,
   })
 );
@@ -58,14 +61,3 @@ app.listen(PORT, () => {
 });
 
 
-
-const app = express();
-
-const __dirname = path.resolve();
-
-// Serve frontend
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-});
